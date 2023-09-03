@@ -1,28 +1,84 @@
+import {Component} from 'react'
+
+import {IoMdClose} from 'react-icons/io'
+
+import Header from '../Header'
+
+import SearchVideos from '../SearchVideos'
+
+import CartContext from '../../context/CartContext'
+
 import {
-  VideoCardContainer,
-  ThumbnailImage,
-  VideoCardBottomContainer,
-  VideoDetailsContainer,
-  VideoDetailsText,
-  NavLink,
+  HomeContainer,
+  HomeSideContainer,
+  BannerImage,
+  HomeStickyContainer,
+  CloseButton,
+  ModalContainer,
+  GetItNowButton,
+  BannerImageContainer,
 } from './styledComponents'
 
-const VideoCardTwo = props => {
-  const {details} = props
-  const {title, id, thumbnailUrl, viewCount} = details
-  return (
-    <NavLink to={`videos/${id}`}>
-      <VideoCardContainer>
-        <ThumbnailImage src={thumbnailUrl} alt="video thumbnail" />
-        <VideoCardBottomContainer>
-          <VideoDetailsContainer>
-            <VideoDetailsText>{title}</VideoDetailsText>
-            <VideoDetailsText>{viewCount} views</VideoDetailsText>
-          </VideoDetailsContainer>
-        </VideoCardBottomContainer>
-      </VideoCardContainer>
-    </NavLink>
-  )
+import SideBar from '../SideBar'
+
+class HomeRoute extends Component {
+  state = {display: 'flex'}
+
+  onCloseBanner = () => {
+    this.setState({display: 'none'}, this.renderHomeVideos)
+  }
+
+  renderHomeVideos = () => {
+    const {display} = this.state
+
+    return (
+      <>
+        <BannerImageContainer data-testid="banner" display={display}>
+          <ModalContainer>
+            <BannerImage
+              src="https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-light-theme-img.png"
+              alt="nxt watch logo"
+            />
+            <p>Buy Nxt Watch Premium</p>
+            <GetItNowButton>GET IT NOW</GetItNowButton>
+          </ModalContainer>
+          <CloseButton
+            type="button"
+            data-testid="close"
+            onClick={this.onCloseBanner}
+          >
+            <IoMdClose size={20} color="#231f20" />
+          </CloseButton>
+        </BannerImageContainer>
+        <SearchVideos />
+      </>
+    )
+  }
+
+  render() {
+    return (
+      <CartContext.Consumer>
+        {value => {
+          const {isDarkTheme} = value
+          const bgColor = isDarkTheme ? '#181818' : '#f9f9f9'
+
+          return (
+            <div data-testid="home">
+              <Header />
+              <HomeContainer bgColor={bgColor}>
+                <HomeStickyContainer>
+                  <SideBar onChangeActiveTab={this.onChangeActiveTab} />
+                </HomeStickyContainer>
+                <HomeSideContainer bgColor={bgColor}>
+                  {this.renderHomeVideos()}
+                </HomeSideContainer>
+              </HomeContainer>
+            </div>
+          )
+        }}
+      </CartContext.Consumer>
+    )
+  }
 }
 
-export default VideoCardTwo
+export default HomeRoute
