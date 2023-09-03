@@ -135,7 +135,7 @@ class TrendingRoute extends Component {
       />
       <Heading>Oops! Something Went Wrong</Heading>
       <Desc className="jobs-failure-description">
-        we are having some trouble to complete your request.Please try again.
+        We are having some trouble to complete your request.Please try again.
       </Desc>
       <NavLinkTwo>
         <Retry
