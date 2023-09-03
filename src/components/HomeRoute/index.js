@@ -39,7 +39,7 @@ class HomeRoute extends Component {
               src="https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-light-theme-img.png"
               alt="nxt watch logo"
             />
-            <p>Buy Nxt watch Premium</p>
+            <p>Buy Nxt Watch Premium</p>
             <GetItNowButton>GET IT NOW</GetItNowButton>
           </ModalContainer>
           <CloseButton
