@@ -52,7 +52,7 @@ class TrendingRoute extends Component {
       apiStatus: apiStatusConstants.inProgress,
     })
     const jwtToken = Cookies.get('jwt_token')
-    const apiUrl = `'https://apis.ccbp.in/videos/trending`
+    const apiUrl = `https://apis.ccbp.in/videos/trending`
     const options = {
       headers: {
         Authorization: `Bearer ${jwtToken}`,
