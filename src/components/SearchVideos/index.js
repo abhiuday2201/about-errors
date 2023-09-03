@@ -61,7 +61,7 @@ class SearchVideos extends Component {
       apiStatus: apiStatusConstants.inProgress,
     })
     const jwtToken = Cookies.get('jwt_token')
-    const apiUrl = `'https://apis.ccbp.in/videos/all?search=${searchValue}`
+    const apiUrl = `https://apis.ccbp.in/videos/all?search=${searchValue}`
     const options = {
       headers: {
         Authorization: `Bearer ${jwtToken}`,
