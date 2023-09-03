@@ -47,7 +47,7 @@ class GamingRoute extends Component {
       apiStatus: apiStatusConstants.inProgress,
     })
     const jwtToken = Cookies.get('jwt_token')
-    const apiUrl = `'https://apis.ccbp.in/videos/gaming`
+    const apiUrl = `https://apis.ccbp.in/videos/gaming`
     const options = {
       headers: {
         Authorization: `Bearer ${jwtToken}`,
@@ -116,7 +116,7 @@ class GamingRoute extends Component {
       />
       <Heading>Oops! Something Went Wrong</Heading>
       <Desc className="jobs-failure-description">
-        we are having some trouble to complete your request.Please try again.
+        We are having some trouble to complete your request.Please try again.
       </Desc>
       <NavLink>
         <Retry
