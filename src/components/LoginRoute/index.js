@@ -79,7 +79,7 @@ class LoginForm extends Component {
           id="password"
           value={password}
           onChange={this.onChangePassword}
-          placeholder="password"
+          placeholder="Password"
         />
         <ShowHideContainer>
           <CheckboxInput
