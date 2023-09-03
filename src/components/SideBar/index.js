@@ -143,7 +143,7 @@ class SideBar extends Component {
   )
 
   render() {
-    return <>{this.renderStatusItems}</>
+    return <>{this.renderStatusItems()}</>
   }
 }
 
