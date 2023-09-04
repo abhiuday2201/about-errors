@@ -69,7 +69,7 @@ class VideoDetails extends Component {
       apiStatus: apiStatusConstants.inProgress,
     })
     const jwtToken = Cookies.get('jwt_token')
-    const apiUrl = `'https://apis.ccbp.in/videos/${id}`
+    const apiUrl = `https://apis.ccbp.in/videos/${id}`
     const options = {
       headers: {
         Authorization: `Bearer ${jwtToken}`,
