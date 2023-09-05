@@ -175,7 +175,7 @@ class TrendingRoute extends Component {
           return (
             <div>
               <Header />
-              <HomeContainer dta-testid="home" bgColor={bgColor}>
+              <HomeContainer data-testid="home" bgColor={bgColor}>
                 <HomeStickyContainer>
                   <SideBar />
                 </HomeStickyContainer>
